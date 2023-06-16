@@ -70,17 +70,17 @@
 // + Định nghĩa key : value cho object
 // + Định nghĩa biến cho object
 
-// let name = "Nam Anh";
-// let age = 20;
-// let course = "course";
+let name = "Nam Anh";
+let age = 20;
+let course = "course";
 
-// let student = {
-//   name,
-//   age,
-//   [course]: "JS",
-// };
+let student = {
+  name,
+  age,
+  [course]: "JS",
+};
 
-// console.log(student);
+console.log(student);
 
 // 8. Rest Parameters
 // Khi sử dụng là tham số
