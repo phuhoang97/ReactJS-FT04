@@ -1,12 +1,22 @@
 import React from "react";
 
-function Control() {
+// C-3: Nhận dữ liệu từ parent
+function Control({ toggle, actionToggle }) {
+  // C-4: Viết hàm để set lại giá trị cho toggle và gửi action name lên cho parent
+  const handleToggleAdd = () => {
+    actionToggle(!toggle, "ADD");
+  };
   return (
     <div>
       <div className='card-header'>
         <div className='row'>
           <div className='col-3'>
-            <button type='button' className='btn btn-primary btn-icon-text'>
+            {/* C-5: gọi hàm vừa xây dựng */}
+            <button
+              onClick={handleToggleAdd}
+              type='button'
+              className='btn btn-primary btn-icon-text'
+            >
               Thêm mới sinh viên
             </button>
           </div>
