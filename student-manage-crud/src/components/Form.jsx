@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // C-8: nhận dữ liệu từ parent
-function Form({ submitForm, actionName }) {
+// U-12: Nhận dữ liệu từ parent
+// U-17: Lấy selectStudent từ parent
+function Form({ submitForm, actionName, handleSubmitUpdate, selectStudent }) {
   // C-9: Khai báo state để lưu trữ các dữ liệu trong các ô input
   const [formInput, setFormInput] = useState({
     studentId: "",
@@ -31,19 +33,29 @@ function Form({ submitForm, actionName }) {
     setFormInput({ ...formInput, [name]: value });
   };
 
-  console.log(formInput);
   // C-12: Viết hàm handleSubmitForm để submit dữ liệu
   const handleSubmitForm = (e) => {
     e.preventDefault();
     submitForm(formInput, false);
   };
 
+  // U-14: Viết hàm handleUpdateForm để submit dữ liệu khi update
+  const handleUpdateForm = (e) => {
+    e.preventDefault();
+    handleSubmitUpdate(formInput, false);
+  };
+
+  // U-15: Sử dụng useEffect để load dữ liệu cho các input
+  useEffect(() => {
+    setFormInput(selectStudent);
+  }, [selectStudent]);
+
   return (
     <div className='col-5 grid-margin'>
       <div className='card'>
         <div className='card-body'>
           <h3 className='card-title'>Thông tin sinh viên</h3>
-          <form className='form-sample' onSubmit={handleSubmitForm}>
+          <form className='form-sample'>
             <div className='form-group row'>
               <label className='col-sm-3 col-form-label'>Mã sinh viên</label>
               <div className='col-sm-9'>
@@ -134,9 +146,24 @@ function Form({ submitForm, actionName }) {
                 />
               </div>
             </div>
-            <button type='submit' className='btn btn-primary me-2'>
-              Submit
-            </button>
+            {/* U-13: Sử dụng toán tử 3 ngôi để chuyển đổi button */}
+            {actionName === "ADD" ? (
+              <button
+                type='submit'
+                className='btn btn-primary me-2'
+                onClick={handleSubmitForm}
+              >
+                Submit
+              </button>
+            ) : (
+              <button
+                type='submit'
+                className='btn btn-primary me-2'
+                onClick={handleUpdateForm}
+              >
+                Edit
+              </button>
+            )}
           </form>
         </div>
       </div>

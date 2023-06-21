@@ -51,6 +51,25 @@ function ParentComp() {
     setToggle(toggle);
   };
 
+  // U-2: Khai báo state để lưu trữ student
+  const [selectStudent, setSelectStudent] = useState({});
+
+  // U-3: Khai báo hàm handleUpdateStudent để truyền xuống listStudent
+  const handleUpdateStudent = (selectStudent, toggle, actionName) => {
+    setSelectStudent(selectStudent);
+    setToggle(toggle);
+    setActionName(actionName);
+  };
+
+  // U-10: Khai báo hàm submit update để truyền xuống form
+  const handleSubmitUpdate = (studentUpdate, toggle) => {
+    const update = students.map((e) =>
+      e.studentId == studentUpdate.studentId ? studentUpdate : e
+    );
+    setStudents(update);
+    setToggle(toggle);
+  };
+
   return (
     <div>
       <div className='row'>
@@ -61,14 +80,25 @@ function ParentComp() {
             {/* END CONTROL */}
             {/* START LIST STUDENT */}
             {/* R-2 truyền dữ liệu xuống listStudent để hiển thị */}
-            <ListStudent listStudentProps={students} />
+            {/* U-4: Truyền dữ liệu xuống ListStudent */}
+            <ListStudent
+              listStudentProps={students}
+              handleUpdateStudent={handleUpdateStudent}
+            />
             {/* END LIST STUDENT */}
           </div>
         </div>
         {/* START FORM SINH VIEN */}
         {/* C-6: Nhận dữ liệu từ toggle để làm toggle */}
+        {/* C-11: Truyền hàm handleSubmitUpdate xuống cho Form */}
+        {/* U-16: Truyền selectStudent để có input có giá trị */}
         {toggle ? (
-          <Form submitForm={handleSubmitAdd} actionName={actionName} />
+          <Form
+            submitForm={handleSubmitAdd}
+            actionName={actionName}
+            handleSubmitUpdate={handleSubmitUpdate}
+            selectStudent={selectStudent}
+          />
         ) : (
           <></>
         )}

@@ -2,7 +2,12 @@ import React from "react";
 import Student from "./Student";
 
 // R-3: Sử dụng destructing để lấy props
-function ListStudent({ listStudentProps }) {
+// U-5: Nhận dữ liệu từ Parent
+function ListStudent({ listStudentProps, handleUpdateStudent }) {
+  // U-6: Khai báo hàm handleUpdate để truyền xuống Student
+  const handleUpdate = (selectStudent, toggle, actionName) => {
+    handleUpdateStudent(selectStudent, toggle, actionName);
+  };
   return (
     <div>
       <div className='card-body'>
@@ -21,8 +26,13 @@ function ListStudent({ listStudentProps }) {
             </thead>
             <tbody>
               {/* R-4: Hiển thị dữ liệu từ props truyền xuống */}
+              {/* U-7: Truyền xuống cho Student */}
               {listStudentProps.map((element, index) => (
-                <Student keyStudent={index} inforStudent={element} />
+                <Student
+                  keyStudent={index}
+                  inforStudent={element}
+                  handleUpdate={handleUpdate}
+                />
               ))}
             </tbody>
           </table>
