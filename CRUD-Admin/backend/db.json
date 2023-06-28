@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nam Anh",
+      "phone": "02123131345",
+      "email": "namanh@gmail.com",
+      "age": 18,
+      "address": "Hà Nội"
+    },
+    {
+      "id": 2,
+      "name": "Hải Anh",
+      "phone": "0289131345",
+      "email": "haianh@gmail.com",
+      "age": 20,
+      "address": "Hà Nội"
+    },
+    {
+      "id": 3,
+      "name": "Giang",
+      "phone": "028956845",
+      "email": "giang@gmail.com",
+      "age": 22,
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "name": "Tú",
+      "phone": "028786845",
+      "email": "tu@gmail.com",
+      "age": 22,
+      "address": "HCM"
+    },
+    {
+      "id": 5,
+      "name": "Khoa",
+      "phone": "097566845",
+      "email": "khoa@gmail.com",
+      "age": 22,
+      "address": "HCM"
+    }
+  ]
+}

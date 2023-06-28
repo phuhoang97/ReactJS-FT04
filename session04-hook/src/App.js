@@ -1,5 +1,10 @@
 import "./App.css";
-import IndexColor from "./components/LiftingStateUp/IndexColor";
+import TaskList from "./components/BaiTap/TaskList";
+// import THReducer from "./components/Bài thực hành/THReducer";
+// import DemoUseRef from "./components/DemoUseRef";
+// import ParentContext from "./components/DemoUseContext/ParentContext";
+// import DemoUseReducer from "./components/DemoUseReducer";
+// import IndexColor from "./components/LiftingStateUp/IndexColor";
 // import TodoList from "./components/BaiTap/TodoList";
 // import BaiTH07 from "./components/Bài thực hành/BaiTH07";
 // import BaiTH06 from "./components/Bài thực hành/BaiTH06";
@@ -22,7 +27,12 @@ function App() {
       {/* <BaiTH06 /> */}
       {/* <BaiTH07 /> */}
       {/* <TodoList /> */}
-      <IndexColor />
+      {/* <IndexColor /> */}
+      {/* <ParentContext /> */}
+      {/* <DemoUseReducer /> */}
+      {/* <THReducer /> */}
+      {/* <DemoUseRef /> */}
+      <TaskList />
     </div>
   );
 }
