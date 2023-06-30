@@ -59,7 +59,6 @@ function HomePage() {
     let result = await axios.get(
       `${url}?_page=${currentPage}&_limit=${perPage}&_sort=${sortTypeName}&_order=${sortType}`
     );
-    console.log(url);
     setData(result.data);
     setTotalPage(totalPages);
   };
