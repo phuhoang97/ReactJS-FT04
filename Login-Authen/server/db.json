@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "email": "phuhoang@gmail.com",
+      "password": "$2a$10$NXPzF9RnMKEZ.Ju8fwgKcONQKtkgYmbfzyCrju2Fb7FFBqTFs3JBy",
+      "confirmPassword": "123123",
+      "fullname": "Cao",
+      "age": "28",
+      "address": "Cao Bằng",
+      "id": 1
+    },
+    {
+      "email": "nhien0211@mailinator.com",
+      "password": "$2a$10$IUA7WrYYfPCy/EQOPfbYJeCj8PNZpfQgr6sZlo1w.7mmR3UcSDVnO",
+      "confirmPassword": "123123",
+      "fullname": "Hoang Phu",
+      "age": "18",
+      "address": "Viet nam",
+      "id": 2
+    },
+    {
+      "email": "admin-globaliving@gmail.com",
+      "password": "$2a$10$RFAK/x6dV2Y04h/OPWL1LePbBRnxoegejKKxvfwv7GhOhMOvR9Sh2",
+      "confirmPassword": "123123",
+      "fullname": "Hoang Phu",
+      "age": "20",
+      "address": "Viet nam",
+      "id": 3
+    },
+    {
+      "email": "dinhdn@rikkei.com",
+      "password": "$2a$10$h0xhp2NnEBbaCjsHU7WLhORrmo43YaGFMo8X8xsQc/UGrfSvxCSEy",
+      "confirmPassword": "123123",
+      "fullname": "Hoang Phu",
+      "age": "45",
+      "address": "Viet nam",
+      "id": 4
+    }
+  ]
+}
