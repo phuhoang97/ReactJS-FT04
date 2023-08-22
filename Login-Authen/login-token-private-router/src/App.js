@@ -15,7 +15,10 @@ function App() {
             isLoggedIn ? <HomePage /> : <Navigate to='/login-user' replace />
           }
         />
-        <Route path='/login-user' element={<LoginUser />} />
+        <Route
+          path='/login-user'
+          element={!isLoggedIn ? <LoginUser /> : <HomePage />}
+        />
         <Route path='/register-user' element={<RegisterUser />} />
       </Routes>
     </div>

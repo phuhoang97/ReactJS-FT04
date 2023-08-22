@@ -3,7 +3,7 @@ import LayoutNavbar from "../layout/LayoutNavbar";
 
 function AboutPage() {
   return (
-    <div>
+    <div className='d-flex'>
       <LayoutNavbar />
       <h2 style={{ textAlign: "center", margin: "20px 0" }}>
         Đây là About Page

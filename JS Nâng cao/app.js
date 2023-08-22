@@ -70,12 +70,12 @@
 // + Định nghĩa key : value cho object
 // + Định nghĩa biến cho object
 
-let name = "Nam Anh";
+let studentName = "Nguyen Van A";
 let age = 20;
 let course = "course";
 
 let student = {
-  name,
+  studentName,
   age,
   [course]: "JS",
 };

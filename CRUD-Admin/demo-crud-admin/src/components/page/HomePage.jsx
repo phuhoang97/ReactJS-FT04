@@ -92,7 +92,7 @@ function HomePage() {
   }, [searchInput, sortType, currentPage, perPage]);
 
   return (
-    <div>
+    <div className='d-flex'>
       <LayoutNavbar />
       <h2 style={{ textAlign: "center", margin: "20px 0" }}>
         Đây là Home Page

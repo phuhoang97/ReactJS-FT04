@@ -1,5 +1,6 @@
 import "./App.css";
-import TaskList from "./components/BaiTap/TaskList";
+// import TaskList from "./components/BaiTap/TaskList";
+import DemoUseMemo from "./components/DemoUseMemo";
 // import THReducer from "./components/Bài thực hành/THReducer";
 // import DemoUseRef from "./components/DemoUseRef";
 // import ParentContext from "./components/DemoUseContext/ParentContext";
@@ -32,7 +33,8 @@ function App() {
       {/* <DemoUseReducer /> */}
       {/* <THReducer /> */}
       {/* <DemoUseRef /> */}
-      <TaskList />
+      <DemoUseMemo />
+      {/* <TaskList /> */}
     </div>
   );
 }

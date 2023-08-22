@@ -1,44 +1,92 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
-import { v4 as uuidv4 } from "uuid";
+import {
+  addTask,
+  deleteTask,
+  setNewTask,
+  toggleTask,
+  updateTask,
+  incrementCount,
+  decrementCount,
+} from "../redux/todoSlice";
 
 function TodoList() {
-  const [text, setText] = useState("");
+  const count = useSelector((state) => state.todo.count);
+  const tasks = useSelector((state) => state.todo.tasks);
+  const newTask = useSelector((state) => state.todo.newTask);
   const dispatch = useDispatch();
 
-  const todo = useSelector((state) => state.todoSlice);
+  const handleAddTask = () => {
+    dispatch(
+      addTask({
+        id: Date.now(),
+        text: newTask,
+        complete: false,
+      })
+    );
+    dispatch(setNewTask(""));
+  };
 
-  console.log(todo);
+  const handleToggle = (taskId) => {
+    dispatch(toggleTask(taskId));
+  };
 
-  // Lưu ý: Khi sử dụng redux
-  // => Không nên sử dụng các hàm không thể dự đoán trước được.
-  // ví dụ:
-  // Math.random, date(), ... => uuid()
+  const handleDeleteTask = (taskId) => {
+    dispatch(deleteTask(taskId));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addTodo({ id: uuidv4(), text: text }));
+  const [selectTask, setSelectTask] = useState(null);
+
+  const handleEditTask = (task) => {
+    setSelectTask(task);
+    dispatch(setNewTask(task.text));
+  };
+
+  const handleUpdateTask = () => {
+    dispatch(
+      updateTask({
+        ...selectTask,
+        text: newTask,
+      })
+    );
+    dispatch(setNewTask(""));
+    setSelectTask(null);
   };
 
   return (
     <div>
-      <h2>TodoList</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button type='submit'>ADD</button>
-      </form>
+      <div>
+        Count: {count}
+        <button onClick={() => dispatch(incrementCount())}>Increase</button>
+        <button onClick={() => dispatch(decrementCount())}>Decrease</button>
+      </div>
+      <h1>TodoList - Redux</h1>
+      <input
+        type='text'
+        value={newTask}
+        placeholder='Enter a new task'
+        onChange={(e) => dispatch(setNewTask(e.target.value))}
+      />
+      <button onClick={selectTask ? handleUpdateTask : handleAddTask}>
+        {selectTask ? "Update" : "Add"}
+      </button>
 
-      {todo &&
-        todo.map((e, i) => (
-          <div key={i}>
-            <div>{e.text}</div>
-          </div>
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>
+            <span
+              style={{
+                textDecoration: task.complete ? "line-through" : "none",
+              }}
+              onClick={() => handleToggle(task.id)}
+            >
+              {task.text}
+            </span>
+            <button onClick={() => handleEditTask(task)}>Edit</button>
+            <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
+          </li>
         ))}
+      </ul>
     </div>
   );
 }

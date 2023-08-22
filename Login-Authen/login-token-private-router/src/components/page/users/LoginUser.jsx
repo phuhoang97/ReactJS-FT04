@@ -32,8 +32,8 @@ function LoginUser() {
         if (res.status === 200) {
           localStorage.setItem("users", JSON.stringify(res.data.accessToken));
           setIsValidToken(true);
-          navigate("/");
           toast.success("Đăng nhập thành công");
+          navigate("/");
         }
       })
 
